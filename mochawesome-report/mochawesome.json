@@ -1,0 +1,275 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-18T10:03:20.433Z",
+    "end": "2025-02-18T10:03:22.358Z",
+    "duration": 1925,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "eb2e8854-7db0-427e-aa3c-d89619eb099b",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "33b9c7e1-9f28-4ce1-a346-ddfe3c745087",
+          "title": "CREATE Reqres API",
+          "fullFile": "C:\\Users\\nabil\\Downloads\\BOOTCAMP QA ENGINEER DIGITAL SKOLA\\Bootcamp QA Engineer\\API Automation\\test\\booking\\createReqres.js",
+          "file": "\\test\\booking\\createReqres.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create data",
+              "fullTitle": "CREATE Reqres API Create data",
+              "timedOut": false,
+              "duration": 554,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(10000);\nconst url = 'https://reqres.in/api/users';\nconst requestData = {\n    name: \"Nabila\",\n    job: \"QA\"\n};\nconst response = await fetch(url, {\n    method: \"POST\",\n    headers: {\n        \"Content-Type\": \"application/json\"\n    },\n    body: JSON.stringify(requestData)\n});\nconst Responsedata = await response.json();\n// Untuk mencetak response API (Debugging)\nconsole.log(\"Response:\", JSON.stringify(Responsedata, null, 2));\n// Pastikan status code adalah 201 (Created)\nassert.strictEqual(response.status, 201, \"Status harus 201\");\n// Pastikan response memiliki field 'name' dan 'job'\nassert.strictEqual(Responsedata.name, \"Nabila\", \"Nama harus 'Nabila'\");\nassert.strictEqual(Responsedata.job, \"QA\", \"Job harus 'QA'\");\nassert.ok(Responsedata.id, \"Response harus memiliki 'id'\");\nassert.ok(Responsedata.createdAt, \"Response harus memiliki 'createdAt'\");",
+              "err": {},
+              "uuid": "49c4a933-434d-4242-a5af-f69cd345132d",
+              "parentUUID": "33b9c7e1-9f28-4ce1-a346-ddfe3c745087",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "49c4a933-434d-4242-a5af-f69cd345132d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 554,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "228673ab-4eb5-4d6f-a9cc-ce8c07c85cb5",
+          "title": "DELETE Reqres API",
+          "fullFile": "C:\\Users\\nabil\\Downloads\\BOOTCAMP QA ENGINEER DIGITAL SKOLA\\Bootcamp QA Engineer\\API Automation\\test\\booking\\deleteReqres.js",
+          "file": "\\test\\booking\\deleteReqres.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "delete data",
+              "fullTitle": "DELETE Reqres API delete data",
+              "timedOut": false,
+              "duration": 410,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(10000);\nconst url = 'https://reqres.in/api/users/2';\nconst response = await fetch(url, {\n    method: \"DELETE\"\n});\n// Pastikan status code adalah 204 (No Content)\nassert.strictEqual(response.status, 204, \"Status harus 204\");\n// Reqres API tidak mengembalikan body untuk DELETE, jadi tidak perlu memeriksa response JSON\nconsole.log(\"Data berhasil dihapus, status:\", response.status);",
+              "err": {},
+              "uuid": "2b17d656-4ea6-4986-9da1-4aeb32c4ec5b",
+              "parentUUID": "228673ab-4eb5-4d6f-a9cc-ce8c07c85cb5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2b17d656-4ea6-4986-9da1-4aeb32c4ec5b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 410,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "45f3e8d4-0c80-4565-8658-e25fcf314c35",
+          "title": "GET Reqres API",
+          "fullFile": "C:\\Users\\nabil\\Downloads\\BOOTCAMP QA ENGINEER DIGITAL SKOLA\\Bootcamp QA Engineer\\API Automation\\test\\booking\\getReqres.js",
+          "file": "\\test\\booking\\getReqres.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Get Data",
+              "fullTitle": "GET Reqres API Get Data",
+              "timedOut": false,
+              "duration": 35,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(10000);\nconst response = await fetch('https://reqres.in/api/users/2');\nconst Responsedata = await response.json();\n//cetak response API\nconsole.log(\"Response : \", JSON.stringify(Responsedata, null, 2));\nassert.strictEqual(response.status, 200, \"Status harus 200\");",
+              "err": {},
+              "uuid": "5223eb3f-e869-4082-b2d9-080c30162fa0",
+              "parentUUID": "45f3e8d4-0c80-4565-8658-e25fcf314c35",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "ketika user tidak ditemukan",
+              "fullTitle": "GET Reqres API ketika user tidak ditemukan",
+              "timedOut": false,
+              "duration": 434,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(10000);\nconst response = await fetch('https://reqres.in/api/users/2222');\nassert.strictEqual(response.status, 404, \"Status harus 404\");\nconst responseJson = await response.json();\nconsole.log(\"Response (JSON) : \", JSON.stringify(responseJson, null, 2));\nassert.deepStrictEqual(responseJson, {}, \"Response harus objek kosong {}\");",
+              "err": {},
+              "uuid": "f06210d8-52ce-42b8-be70-60e4f414b654",
+              "parentUUID": "45f3e8d4-0c80-4565-8658-e25fcf314c35",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5223eb3f-e869-4082-b2d9-080c30162fa0",
+            "f06210d8-52ce-42b8-be70-60e4f414b654"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 469,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "78ea861e-d2f0-44f1-a4bf-cb3473afc952",
+          "title": "PATCH Reqres API",
+          "fullFile": "C:\\Users\\nabil\\Downloads\\BOOTCAMP QA ENGINEER DIGITAL SKOLA\\Bootcamp QA Engineer\\API Automation\\test\\booking\\patchReqres.js",
+          "file": "\\test\\booking\\patchReqres.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "update data",
+              "fullTitle": "PATCH Reqres API update data",
+              "timedOut": false,
+              "duration": 416,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(10000);\nconst url = 'https://reqres.in/api/users/2';\nconst requestData = {\n    name: \"Nabila Asshafa Putri\"\n};\nconst response = await fetch(url, {\n    method: \"PATCH\",\n    headers: {\n        \"Content-Type\": \"application/json\"\n    },\n    body: JSON.stringify(requestData)\n});\nconst Responsedata = await response.json();\n// Untuk mencetak response API (Debugging)\nconsole.log(\"Response:\", JSON.stringify(Responsedata, null, 2));\n// Pastikan status code adalah 200 (update)\nassert.strictEqual(response.status, 200, \"Status harus 200\");\n// Pastikan response memiliki 'name' yang diperbarui\nassert.strictEqual(Responsedata.name, \"Nabila Asshafa Putri\", \"Nama harus 'Nabila Asshafa Putri'\");\n// Pastikan response memiliki 'updatedAt'\nassert.ok(Responsedata.updatedAt, \"Response harus memiliki 'updatedAt'\");",
+              "err": {},
+              "uuid": "f68b8f4a-70ef-4fe0-8f83-31e54011697e",
+              "parentUUID": "78ea861e-d2f0-44f1-a4bf-cb3473afc952",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f68b8f4a-70ef-4fe0-8f83-31e54011697e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 416,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "83b7fdf7-aedd-4041-8169-919096bf9a3e",
+          "title": "Validation JSON Schema",
+          "fullFile": "C:\\Users\\nabil\\Downloads\\BOOTCAMP QA ENGINEER DIGITAL SKOLA\\Bootcamp QA Engineer\\API Automation\\test\\booking\\validateJSON.js",
+          "file": "\\test\\booking\\validateJSON.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "JSON Schema",
+              "fullTitle": "Validation JSON Schema JSON Schema",
+              "timedOut": false,
+              "duration": 61,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(5000);\nconst response = await fetch('https://reqres.in/api/users/2');\nconst data = await response.json();\nconst validate = ajv.compile(schema);\nconst valid = validate(data);\nif (!valid) {\n    console.log(\"Validation Errors: \", validate.errors);\n}\nconsole.log(\"Test Response: \" + JSON.stringify(data, null, 2));\nassert.ok(valid, \"Response JSON harus sesuai dengan schema\");",
+              "err": {},
+              "uuid": "ebb8e39d-82a8-41f0-864a-e046686262e3",
+              "parentUUID": "83b7fdf7-aedd-4041-8169-919096bf9a3e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ebb8e39d-82a8-41f0-864a-e046686262e3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 61,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
